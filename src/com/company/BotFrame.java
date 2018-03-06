@@ -10,7 +10,7 @@ public class BotFrame extends JFrame {
     JPanel panelBottom = new JPanel();
     JPanel panelMain = new JPanel();
 
-    JLabel labelName = new JLabel("Имя:     ");
+    JLabel labelName = new JLabel("Имя:  ");
     JLabel labelSpace1 = new JLabel("       ");
     JLabel labelSpace2 = new JLabel("       ");
 
@@ -76,7 +76,7 @@ public class BotFrame extends JFrame {
 
     protected void buttonAction(){
         String stringIn = textChat.getText();
-        areaChat.append(stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
+        areaChat.append(labelName.getText()+stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
     }
 
 }
