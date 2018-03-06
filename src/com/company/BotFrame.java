@@ -64,13 +64,19 @@ public class BotFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buttonAction();
+                textChat.setText("");
             }
         });
+
+        JRootPane rootPane = SwingUtilities.getRootPane(buttonOk);  //Установка кнопки на Enter (по умолчанию)
+        rootPane.setDefaultButton(buttonOk);
+        textChat.requestFocusInWindow();  //Фокус на текстфилд
 
     }
 
     protected void buttonAction(){
-
+        String stringIn = textChat.getText();
+        areaChat.append(stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
     }
 
 }
