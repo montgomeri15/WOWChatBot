@@ -14,13 +14,17 @@ public class LoginForm extends JFrame{
     JTextField textField = new JTextField(15);
     JButton button = new JButton("ОК");
 
+    String login = new String();
+
+    BotFrame botFrame = new BotFrame();
+
     protected void login(){
 
         setTitle("Логин");
         setSize(250,150);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //setResizable(false);
+        setResizable(false);
         setVisible(true);
 
         panel.setLayout(new GridBagLayout());
@@ -47,7 +51,8 @@ public class LoginForm extends JFrame{
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                botFrame.chatFrame();
+                setVisible(false);
             }
         });
 
@@ -55,6 +60,4 @@ public class LoginForm extends JFrame{
         rootPane.setDefaultButton(button);
         textField.requestFocusInWindow();
     }
-
-
 }

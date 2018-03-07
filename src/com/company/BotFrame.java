@@ -19,7 +19,11 @@ public class BotFrame extends JFrame {
     JTextField textChat = new JTextField(20);
     JButton buttonOk = new JButton("OK");
 
+    String login = new String();
+
     protected void chatFrame(){
+
+        System.out.println(this.login);
 
         setTitle("Поговорим о WOW?");
         setSize(550,360);

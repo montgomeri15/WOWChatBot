@@ -6,9 +6,5 @@ public class Main {
 
         LoginForm loginForm = new LoginForm();
         loginForm.login();
-
-        //BotFrame botFrame = new BotFrame();
-        //botFrame.chatFrame();
-
     }
 }
