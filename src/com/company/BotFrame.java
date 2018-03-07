@@ -64,19 +64,18 @@ public class BotFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buttonAction();
-                textChat.setText("");
             }
         });
-
         JRootPane rootPane = SwingUtilities.getRootPane(buttonOk);  //Установка кнопки на Enter (по умолчанию)
         rootPane.setDefaultButton(buttonOk);
         textChat.requestFocusInWindow();  //Фокус на текстфилд
-
     }
 
     protected void buttonAction(){
         String stringIn = textChat.getText();
-        areaChat.append(labelName.getText()+stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
+        if (stringIn.trim().length() > 0){  //trim() - удаляет пробелы в начале и конце строки
+            areaChat.append(labelName.getText()+stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
+        }
+        textChat.setText("");
     }
-
 }
