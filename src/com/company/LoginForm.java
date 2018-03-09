@@ -14,11 +14,9 @@ public class LoginForm extends JFrame{
     JTextField textField = new JTextField(15);
     JButton button = new JButton("ОК");
 
-    String login = new String();
-
     BotFrame botFrame = new BotFrame();
 
-    protected void login(){
+    protected void loginForm(final JLabel ourLabel){
 
         setTitle("Логин");
         setSize(250,150);
@@ -51,11 +49,11 @@ public class LoginForm extends JFrame{
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                botFrame.chatFrame();
+                ourLabel.setText(textField.getText()+":   ");
+                //botFrame.chatFrame();
                 setVisible(false);
             }
         });
-
         JRootPane rootPane = SwingUtilities.getRootPane(button);
         rootPane.setDefaultButton(button);
         textField.requestFocusInWindow();

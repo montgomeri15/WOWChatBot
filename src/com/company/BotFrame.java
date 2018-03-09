@@ -10,7 +10,7 @@ public class BotFrame extends JFrame {
     JPanel panelBottom = new JPanel();
     JPanel panelMain = new JPanel();
 
-    JLabel labelName = new JLabel("Имя:  ");
+    JLabel labelName = new JLabel("");
     JLabel labelSpace1 = new JLabel("       ");
     JLabel labelSpace2 = new JLabel("       ");
 
@@ -19,11 +19,7 @@ public class BotFrame extends JFrame {
     JTextField textChat = new JTextField(20);
     JButton buttonOk = new JButton("OK");
 
-    String login = new String();
-
     protected void chatFrame(){
-
-        System.out.println(this.login);
 
         setTitle("Поговорим о WOW?");
         setSize(550,360);
@@ -81,5 +77,9 @@ public class BotFrame extends JFrame {
             areaChat.append(labelName.getText()+stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
         }
         textChat.setText("");
+    }
+
+    public JLabel getLabel() {
+        return labelName;
     }
 }
