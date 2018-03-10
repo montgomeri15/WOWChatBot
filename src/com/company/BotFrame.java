@@ -79,7 +79,7 @@ public class BotFrame extends JFrame {
         textChat.setText("");
     }
 
-    public JLabel getLabel() {
+    public JLabel getLabel(){  //получение лейбла (обрабатывается в LoginForm и Main)
         return labelName;
     }
 }

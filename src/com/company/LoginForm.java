@@ -49,7 +49,7 @@ public class LoginForm extends JFrame{
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ourLabel.setText(textField.getText()+":   ");
+                ourLabel.setText(textField.getText()+":   ");  //отправление значения в лейбл (обрабатывается в Main)
                 //botFrame.chatFrame();
                 setVisible(false);
             }
