@@ -1,8 +1,12 @@
 package com.company;
 
 import java.util.HashMap;
+import java.util.Random;
+import java.util.regex.Pattern;
 
 public class Bot {
+
+    Random random = new Random();
 
     String[] COMMON_PHRASES = {  //Общие фразы
             "Хорошо болтаем :)",
@@ -22,7 +26,7 @@ public class Bot {
             "Давай сохраним интригу? ;)",
             "Ох, была бы у меня такая оооогрооомнаааая энциклопедия..."
     };
-    HashMap<String, String> ANSWERS_PATTERNS = new HashMap<String, String>(){
+    HashMap<String, String> QUESTIONS_PATTERNS = new HashMap<String, String>(){
         {
             //hello
             put("привет", "hello");
@@ -39,5 +43,33 @@ public class Bot {
             put("вечер добрый", "hello");
         }
     };
+    HashMap<String, String> ANSWERS_PATTERNS = new HashMap<String, String>(){
+        {
+            put("hello", "Привет!");
+        }
+    };
+
+    public Bot(){
+        //Random random = new Random();
+    }
+
+    public String botTalk(String ourMessage){
+        ourMessage = String.join(" ", ourMessage.toLowerCase().split("[,.?!{}/|:;]%"));
+        String hisTalking;
+
+        if (ourMessage.trim().endsWith("?")){  //trim() - удаляет пробелы в начале и конце строки
+            hisTalking = ELUSIVE_ANSWERS[random.nextInt(ELUSIVE_ANSWERS.length)];  //рандомный ответ из всего массива
+        } else {
+            hisTalking = COMMON_PHRASES[random.nextInt(COMMON_PHRASES.length)];
+        }
+        return hisTalking;
+    }
+
+    //String.join - объединяет строку, разделяя слова первым элементом
+    //split() - разбивает String на массив строк с разделением указанной подстрокой
+
+
+
+
 
 }
