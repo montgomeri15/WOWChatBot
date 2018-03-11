@@ -54,8 +54,9 @@ public class LoginForm extends JFrame{
                 setVisible(false);
             }
         });
-        JRootPane rootPane = SwingUtilities.getRootPane(button);
+
+        JRootPane rootPane = SwingUtilities.getRootPane(button);  //Установка кнопки на Enter (по умолчанию)
         rootPane.setDefaultButton(button);
-        textField.requestFocusInWindow();
+        textField.requestFocusInWindow();  //Фокус на текстфилд
     }
 }

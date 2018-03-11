@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 public class BotFrame extends JFrame {
 
+    Bot bot = new Bot();
+
     JPanel panelBottom = new JPanel();
     JPanel panelMain = new JPanel();
 
@@ -66,6 +68,7 @@ public class BotFrame extends JFrame {
                 buttonAction();
             }
         });
+
         JRootPane rootPane = SwingUtilities.getRootPane(buttonOk);  //Установка кнопки на Enter (по умолчанию)
         rootPane.setDefaultButton(buttonOk);
         textChat.requestFocusInWindow();  //Фокус на текстфилд
@@ -73,10 +76,12 @@ public class BotFrame extends JFrame {
 
     protected void buttonAction(){
         String stringIn = textChat.getText();
+
         if (stringIn.trim().length() > 0){  //trim() - удаляет пробелы в начале и конце строки
             areaChat.append(labelName.getText()+stringIn+"\n");  //append - мы сразу добавляем к уже имеющемуся тексту
         }
         textChat.setText("");
+        areaChat.append("Бот:   "+bot.botTalk(stringIn)+"\n");  //выводим то, что говорит бот
     }
 
     public JLabel getLabel(){  //получение лейбла (обрабатывается в LoginForm и Main)
