@@ -49,27 +49,17 @@ public class Bot {
         }
     };
 
-    public Bot(){
-        //Random random = new Random();
-    }
+    //String.join - объединяет строку, разделяя слова первым элементом
+    //split() - разбивает String на массив строк с разделением указанной подстрокой
 
     public String botTalk(String ourMessage){
         ourMessage = String.join(" ", ourMessage.toLowerCase().split("[,.?!{}/|:;]%"));
         String hisTalking;
 
-        if (ourMessage.trim().endsWith("?")){  //trim() - удаляет пробелы в начале и конце строки
-            hisTalking = ELUSIVE_ANSWERS[random.nextInt(ELUSIVE_ANSWERS.length)];  //рандомный ответ из всего массива
-        } else {
-            hisTalking = COMMON_PHRASES[random.nextInt(COMMON_PHRASES.length)];
-        }
+        hisTalking = (ourMessage.endsWith("?") ?
+                ELUSIVE_ANSWERS[random.nextInt(ELUSIVE_ANSWERS.length)] :
+                COMMON_PHRASES[random.nextInt(COMMON_PHRASES.length)]);  //рандомный ответ из всего массива)
+
         return hisTalking;
     }
-
-    //String.join - объединяет строку, разделяя слова первым элементом
-    //split() - разбивает String на массив строк с разделением указанной подстрокой
-
-
-
-
-
 }
