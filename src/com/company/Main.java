@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.DB.DbManager;
+
+import java.sql.SQLException;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,5 +12,14 @@ public class Main {
 
         LoginForm loginForm = new LoginForm();
         loginForm.loginForm(botFrame.getLabel());
+
+        DbManager dbManager = new DbManager();
+        try {
+            dbManager.getConnection();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
