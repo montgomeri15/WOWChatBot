@@ -15,10 +15,8 @@ public class Main {
 
         DbManager dbManager = new DbManager();
         try {
-            dbManager.getConnection();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+            dbManager.createTable();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
