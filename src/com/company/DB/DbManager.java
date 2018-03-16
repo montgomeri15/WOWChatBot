@@ -22,13 +22,29 @@ public class DbManager {
     public static void createTable() throws Exception {
         try {
             connection = getConnection();
-            PreparedStatement ps_create = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT NOT NULL AUTO_INCREMENT, ourkey VARCHAR(255), value VARCHAR(255), PRIMARY KEY(id))");
+            PreparedStatement ps_create = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT NOT NULL AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255), PRIMARY KEY(id))");
             ps_create.executeUpdate();
         } catch (Exception e){
             System.out.println(e);
         }
         finally {
             System.out.println("Создание таблицы завершено.");
+        }
+    }
+
+    /** Добавление в таблицу информации */
+    public static void postTable() throws Exception {
+        String hello_key = "привет";
+        String hello_value = "hello";
+
+        try {
+            connection = getConnection();
+            PreparedStatement ps_post = connection.prepareStatement("INSERT INTO chatbot(our_key, our_value) VALUES ('"+hello_key+"','"+hello_value+"')");
+            ps_post.executeUpdate();
+        } catch (Exception e){
+            System.out.println(e);
+        } finally {
+            System.out.println("Таблица заполнена.");
         }
     }
 }
