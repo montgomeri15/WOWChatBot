@@ -17,6 +17,7 @@ public class Main {
         try {
             dbManager.createTable();
             dbManager.postTable();
+            dbManager.get();
         } catch (Exception e) {
             e.printStackTrace();
         }
