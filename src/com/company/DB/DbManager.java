@@ -1,7 +1,5 @@
 package com.company.DB;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -14,7 +12,7 @@ public class DbManager {
 
     /** Подключение к БД */
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");  //Class.forName() приводит к загрузке класса и инициализации его статической части.
+        //Class.forName("com.mysql.jdbc.Driver");  //Class.forName() приводит к загрузке класса и инициализации его статической части.
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/location", "root", "root");
         System.out.println("Установлено соединение с БД.");
         return connection;
@@ -24,7 +22,7 @@ public class DbManager {
     public static void createTable() throws Exception {
         try {
             connection = getConnection();
-            ps = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT NOT NULL AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255), PRIMARY KEY(id))");
+            ps = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255), PRIMARY KEY(id))");
             ps.executeUpdate();  //Для выполнения операторов INSERT, UPDATE, DELETE, CREATE TABLE и DROP TABLE.
         } catch (Exception e){
             System.out.println(e);
