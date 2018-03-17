@@ -22,7 +22,7 @@ public class DbManager {
     public static void createTable() throws Exception {
         try {
             connection = getConnection();
-            ps = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255), PRIMARY KEY(id))");
+            ps = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT PRIMARY KEY AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255))");
             ps.executeUpdate();  //Для выполнения операторов INSERT, UPDATE, DELETE, CREATE TABLE и DROP TABLE.
         } catch (Exception e){
             System.out.println(e);
