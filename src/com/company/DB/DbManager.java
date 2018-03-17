@@ -6,8 +6,7 @@ import java.util.ArrayList;
 public class DbManager {
 
     public static Connection connection;  //Объект Connection представляет собой соединение с БД.
-    public static Statement statement;  //Используется для выполнения SQL-запросов к БД.
-    public static PreparedStatement ps;  //Как и Statement, но экземпляры помнят скомпилированные SQL-выражения.
+    public static PreparedStatement ps;  //Как и Statement используется для выполнения SQL-запросов к БД, но экземпляры помнят скомпилированные SQL-выражения.
     public static ResultSet resultSet;  //ResultSet содержит все строки и предоставляет доступ к данным в строках.
 
     /** Подключение к БД */
