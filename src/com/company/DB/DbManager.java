@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 public class DbManager {
 
-    public static Connection connection;  //Объект Connection представляет собой соединение с БД.
-    public static PreparedStatement ps;  //Как и Statement используется для выполнения SQL-запросов к БД, но экземпляры помнят скомпилированные SQL-выражения.
-    public static ResultSet resultSet;  //ResultSet содержит все строки и предоставляет доступ к данным в строках.
+    public static Connection connection;
+    public static PreparedStatement ps;
+    public static ResultSet resultSet;
 
     /** Подключение к БД */
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        //Class.forName("com.mysql.jdbc.Driver");  //Class.forName() приводит к загрузке класса и инициализации его статической части.
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/location", "root", "root");
         System.out.println("Установлено соединение с БД.");
         return connection;
@@ -22,7 +21,7 @@ public class DbManager {
         try {
             connection = getConnection();
             ps = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT PRIMARY KEY AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255))");
-            ps.executeUpdate();  //Для выполнения операторов INSERT, UPDATE, DELETE, CREATE TABLE и DROP TABLE.
+            ps.executeUpdate();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -51,12 +50,12 @@ public class DbManager {
     public static ArrayList<String> get() throws Exception {
         try {
             connection = getConnection();
-            ps = connection.prepareStatement("SELECT our_key, our_value FROM chatbot");  //Если без конкретики, то перед FROM стоит *
-            resultSet = ps.executeQuery();  //Для запросов, результат которых один единственный набор значений, напр. SELECT.
+            ps = connection.prepareStatement("SELECT our_key, our_value FROM chatbot");
+            resultSet = ps.executeQuery();
 
             ArrayList<String> array = new ArrayList<>();
 
-            while (resultSet.next()) {  //До тех пор, пока есть следующие результаты (до конца)
+            while (resultSet.next()) {
                 System.out.print(resultSet.getString("our_key"));
                 System.out.print(" ");
                 System.out.println(resultSet.getString("our_value"));
