@@ -17,7 +17,7 @@ public class DbManager {
     }
 
     /** Создание таблицы */
-    public static void createTable() throws Exception {
+    public static void createTable() throws ClassNotFoundException, SQLException {
         try {
             connection = getConnection();
             ps = connection.prepareStatement("CREATE TABLE IF NOT EXISTS chatbot(id INT PRIMARY KEY AUTO_INCREMENT, our_key VARCHAR(255), our_value VARCHAR(255))");
@@ -31,7 +31,7 @@ public class DbManager {
     }
 
     /** Добавление в таблицу информации */
-    public static void postTable() throws Exception {
+    public static void postTable() throws ClassNotFoundException, SQLException {
         String hello_key = "привет";
         String hello_value = "hello";
 
@@ -47,7 +47,7 @@ public class DbManager {
     }
 
     /** Выбор и вывод данных */
-    public static ArrayList<String> get() throws Exception {
+    public static ArrayList<String> get() throws ClassNotFoundException, SQLException {
         try {
             connection = getConnection();
             ps = connection.prepareStatement("SELECT our_key, our_value FROM chatbot");
